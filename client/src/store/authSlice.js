@@ -17,7 +17,7 @@ try {
 const initialState = {
   status: !!parsedUserData,
   userData: parsedUserData,
-  token: localStorage.getItem("token") || null
+  token: tokenFromStorage || null
 };
 
 const authSlice = createSlice({
