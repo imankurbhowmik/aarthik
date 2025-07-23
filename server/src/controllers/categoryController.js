@@ -44,13 +44,13 @@ export const getCategories = async (req, res) => {
 // Delete a category
 export const deleteCategory = async (req, res) => {
   try {
-    const category = await Category.findById(req.params.id);
+    const category = await Category.findOne({ _id: req.params.id, user: req.user._id });
 
     if (!category || category.user.toString() !== req.user._id.toString()) {
       return res.status(404).json({ message: "Category not found or unauthorized" });
     }
 
-    await category.remove();
+    await Category.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Category deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });

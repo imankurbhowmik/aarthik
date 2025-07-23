@@ -4,10 +4,20 @@ import { createSlice } from "@reduxjs/toolkit";
 const tokenFromStorage = localStorage.getItem("token");
 const userDataFromStorage = localStorage.getItem("userData");
 
+let parsedUserData = null;
+try {
+  if (userDataFromStorage && userDataFromStorage !== "undefined") {
+    parsedUserData = JSON.parse(userDataFromStorage);
+  }
+} catch (err) {
+  console.error("Invalid userData in localStorage");
+  localStorage.removeItem("userData"); // Cleanup if corrupt
+}
+
 const initialState = {
-  status: !!tokenFromStorage,
-  userData: userDataFromStorage ? JSON.parse(userDataFromStorage) : null,
-  token: tokenFromStorage || null
+  status: !!parsedUserData,
+  userData: parsedUserData,
+  token: localStorage.getItem("token") || null
 };
 
 const authSlice = createSlice({

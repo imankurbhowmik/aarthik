@@ -44,13 +44,13 @@ export const getSources = async (req, res) => {
 // Delete a source
 export const deleteSource = async (req, res) => {
   try {
-    const source = await Source.findById(req.params.id);
+    const source = await Source.findOne({ _id: req.params.id, user: req.user._id });
 
     if (!source || source.user.toString() !== req.user._id.toString()) {
       return res.status(404).json({ message: "Source not found or unauthorized" });
     }
 
-    await source.remove();
+    await Source.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Source deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
