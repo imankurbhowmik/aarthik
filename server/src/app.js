@@ -6,6 +6,7 @@ import {router as incomeRouter} from "./routes/incomeRoutes.js";
 import {router as analyticsRouter} from "./routes/analyticsRoutes.js";
 import { router as categoryRouter } from "./routes/categoryRoutes.js";
 import { router as sourceRouter } from "./routes/sourceRoutes.js";
+import { router as userRouter } from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use("/api/incomes", incomeRouter);
 app.use("/api/analytics", analyticsRouter);
 app.use("/api/categories", categoryRouter);
 app.use("/api/sources", sourceRouter);
+app.use("/api/user", userRouter);
 
 
 export default app;
