@@ -35,11 +35,14 @@ const Dashboard = () => {
     fetchData(token);
   }, []);
 
-  if (!summary || !trend || !monthlyCat || !monthlySource) return <div>Loading...</div>;
+  if (!summary || !trend || !monthlyCat || !monthlySource) { 
+    return <div className="flex flex-col items-center justify-center h-[70vh] text-center">
+  <div className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin mb-4"></div>
+  <h2 className="text-lg font-semibold text-gray-600">Fetching insights...</h2>
+  <p className="text-sm text-gray-400">Hang tight, we’re analyzing your data.</p>
+</div>
 
-  const recentItems = [...summary.recentExpenses || [], ...summary.recentIncomes || []]
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 5);
+  } 
 
   return (
     <div className="p-4 space-y-6">
@@ -104,38 +107,51 @@ const Dashboard = () => {
       </div>
 
       {/* Monthly Category Breakdown StackedBar */}
-      <div className="bg-white p-4 rounded-xl shadow">
-        <h2 className="text-xl font-semibold mb-2">📊 Monthly Category Breakdown</h2>
+    <div className="bg-white p-4 rounded-xl shadow">
+      <h2 className="text-xl font-semibold mb-2">📊 Monthly Category Breakdown</h2>
+
+      {Object.keys(monthlyCat).length === 0 ? (
+        <p className="text-gray-500">No data available</p>
+      ) : (
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={Object.keys(monthlyCat).map(month => ({ month, ...monthlyCat[month] }))}>
+          <BarChart
+            data={Object.keys(monthlyCat).map((month) => ({
+              month,
+              ...monthlyCat[month],
+            }))}
+          >
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
             <Legend />
-            {Object.keys(Object.values(monthlyCat)[0] || {}).map((cat, idx) => (
-              <Bar key={cat} dataKey={cat} stackId="a" fill={COLORS[idx % COLORS.length]} />
-            ))}
+
+            {(() => {
+              // Get all unique categories across all months
+              const categorySet = new Set();
+              Object.values(monthlyCat).forEach((monthObj) => {
+                Object.keys(monthObj).forEach((cat) => categorySet.add(cat));
+              });
+              const categoryKeys = [...categorySet];
+
+              return categoryKeys.map((cat, idx) => (
+                <Bar
+                  key={cat}
+                  dataKey={cat}
+                  stackId="a"
+                  fill={COLORS[idx % COLORS.length]}
+                />
+              ));
+            })()}
           </BarChart>
         </ResponsiveContainer>
-      </div>
+      )}
+    </div>
+
 
       {/* Top Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Card><CardContent><h2 className="text-lg font-semibold">🔝 Top Expense Category</h2><p className="text-xl">{Object.entries(summary.categoryBreakdown).sort((a, b) => b[1] - a[1])[0]?.[0] || "N/A"}</p></CardContent></Card>
         <Card><CardContent><h2 className="text-lg font-semibold">🏦 Top Income Source</h2><p className="text-xl">{Object.entries(summary.sourceBreakdown).sort((a, b) => b[1] - a[1])[0]?.[0] || "N/A"}</p></CardContent></Card>
-      </div>
-
-      {/* Recent Transactions */}
-      <div className="bg-white p-4 rounded-xl shadow">
-        <h2 className="text-xl font-semibold mb-4">🕘 Recent Transactions</h2>
-        <ul className="divide-y">
-          {recentItems.map((item, idx) => (
-            <li key={idx} className="py-2 flex justify-between">
-              <span>{item.description || "(no description)"}</span>
-              <span className={item.category ? "text-red-500" : "text-green-600"}>₹{item.amount}</span>
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
   );
