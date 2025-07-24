@@ -45,7 +45,7 @@ const Category = () => {
     if (!window.confirm("Are you sure to delete this category?")) return;
     try {
       await api.delete(`/api/categories/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
       fetchCategories();
     } catch (err) {

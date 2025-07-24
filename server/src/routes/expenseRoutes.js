@@ -16,6 +16,6 @@ router.route("/")
 router
   .route("/:id")
   .delete(protect, deleteExpense)
-  .put(protect, updateExpense); // optional
+  .put(protect, updateExpense); 
 
 export {router};

@@ -53,13 +53,15 @@ const Expense = () => {
     e.preventDefault();
     setLoading(true);
     try {
-    //   if (editingId) {
-    //     await api.put(`/api/expenses/${editingId}`, form);
-    //   } else {
+      if (editingId) {
+        await api.put(`/api/expenses/${editingId}`, form, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      } else {
         await api.post("/api/expenses", form, {
         headers: { Authorization: `Bearer ${token}` },
       });
-    //   }
+      }
       fetchExpenses();
       setForm({ amount: "", category: "", description: "", date: dayjs().format("YYYY-MM-DD") });
       setEditingId(null);
@@ -83,7 +85,7 @@ const Expense = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this expense?")) return;
     try {
-      await api.delete(`/expenses/${id}`, {
+      await api.delete(`/api/expenses/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchExpenses();

@@ -45,7 +45,7 @@ const Source = () => {
     if (!window.confirm("Are you sure to delete this source?")) return;
     try {
       await api.delete(`/api/sources/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
       fetchSources();
     } catch (err) {

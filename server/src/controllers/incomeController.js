@@ -40,15 +40,13 @@ export const getIncomes = async (req, res) => {
 // @route   DELETE /api/incomes/:id
 export const deleteIncome = async (req, res) => {
   try {
-    const income = await Income.findById(req.params.id);
+    const income = await Income.findOne({ _id: req.params.id, user: req.user._id });
 
-    if (!income) return res.status(404).json({ message: "Income not found" });
-
-    if (income.user.toString() !== req.user._id.toString()) {
-      return res.status(401).json({ message: "Not authorized" });
+    if (!income || income.user.toString() !== req.user._id.toString()) {
+      return res.status(404).json({ message: "Income not found or unauthorized" });
     }
 
-    await income.remove();
+    await Income.findByIdAndDelete(req.params.id);
     res.status(200).json({ message: "Income deleted" });
   } catch (err) {
     res.status(500).json({ message: err.message });
