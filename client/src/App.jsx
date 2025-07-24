@@ -10,9 +10,10 @@ import Income from "./pages/Income";
 import Category from "./pages/Category";
 import Source from "./pages/Source";
 import Profile from "./pages/Profile";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { login } from "./store/authSlice";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Support from "./pages/Support";
+import Contact from "./pages/Contact";
 
 const App =
   createBrowserRouter(
@@ -31,6 +32,10 @@ const App =
         <Route path="category" element={<PrivateRoute><Category /></PrivateRoute>} />
         <Route path="source" element={<PrivateRoute><Source /></PrivateRoute>} />
         <Route path="profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+        <Route path="privacy" element={<PrivateRoute><Privacy /></PrivateRoute>} />
+        <Route path="terms" element={<PrivateRoute><Terms /></PrivateRoute>} />
+        <Route path="support" element={<PrivateRoute><Support /></PrivateRoute>} />
+        <Route path="contact" element={<PrivateRoute><Contact /></PrivateRoute>} />
         
 
         {/* Optional fallback */}

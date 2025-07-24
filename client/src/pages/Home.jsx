@@ -9,7 +9,7 @@ const Home = () => {
       <div className="w-full h-full flex items-center justify-center p-4">
         <div className="w-full max-w-4xl bg-white/30 backdrop-blur-xl rounded-3xl shadow-xl border border-white/40 p-10 sm:p-16 text-center">
           <h1 className="text-4xl sm:text-5xl font-bold text-indigo-700 mb-6 drop-shadow-md">
-            {status ? `Welcome back, ${userData?.name || "User"} 👋` : "Welcome to FinTrack 💸"}
+            {status ? `Welcome back, ${userData?.name || "User"} 👋` : "Welcome to Aarthik 💸"}
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-800 mb-10">

@@ -61,6 +61,8 @@ const Profile = () => {
 
   const handleLogout = () => {
     dispatch(logout());
+    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
     navigate("/"); // Redirect to home after logout
   };
 

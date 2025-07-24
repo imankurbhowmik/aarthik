@@ -21,7 +21,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
         {/* Logo */}
         <Link to="/home" className="text-xl font-bold text-indigo-600 tracking-wide">
-          Arthik
+          Aarthik
         </Link>
 
         {/* Nav Items */}

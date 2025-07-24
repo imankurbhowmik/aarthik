@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail, FiTwitter } from "react-icons/fi";
 
 const Footer = () => {
   return (
@@ -12,7 +12,7 @@ const Footer = () => {
           to="/"
           className="text-2xl font-extrabold text-indigo-600 tracking-wide hover:opacity-90 transition"
         >
-          Arthik
+          Aarthik
         </Link>
 
         {/* Center: Navigation Links */}
@@ -26,14 +26,15 @@ const Footer = () => {
         {/* Right: Social / Contact */}
         <div className="flex gap-4 text-gray-500 text-lg">
           <a
-            href="mailto:support@arthik.com"
+            href="https://twitter.com/iamankurbhowmik"
+            target="_blank"
             className="hover:text-indigo-600 transition"
             title="Email us"
           >
-            <FiMail />
+            <FiTwitter />
           </a>
           <a
-            href="https://github.com/your-github"
+            href="https://github.com/imankurbhowmik"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-600 transition"
@@ -42,7 +43,7 @@ const Footer = () => {
             <FiGithub />
           </a>
           <a
-            href="https://linkedin.com/in/your-profile"
+            href="https://www.linkedin.com/in/ankur-bhowmik-83921b18b/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-600 transition"
@@ -55,7 +56,7 @@ const Footer = () => {
 
       {/* Bottom Strip */}
       <div className="bg-gray-100 py-4 text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} Arthik. All rights reserved.
+        &copy; {new Date().getFullYear()} Aarthik. All rights reserved.
       </div>
     </footer>
   );
