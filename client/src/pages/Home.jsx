@@ -15,7 +15,7 @@ const Home = () => {
           <p className="text-lg sm:text-xl text-gray-800 mb-10">
             {status
               ? "Effortlessly manage your finances and stay in control. Your dashboard awaits!"
-              : "Track your income and expenses seamlessly. Join FinTrack and level up your financial game."}
+              : "Track your income and expenses seamlessly. Join Aarthik and level up your financial game."}
           </p>
 
           {status ? (
