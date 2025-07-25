@@ -4,6 +4,7 @@ import { login } from "../store/authSlice";
 import { useNavigate } from "react-router-dom";
 import { FiMail, FiLock } from "react-icons/fi";
 import api from "../api/axios";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
