@@ -66,7 +66,12 @@ const Profile = () => {
     navigate("/"); // Redirect to home after logout
   };
 
-  if (loading) return <div className="text-center py-10">Loading...</div>;
+  if (loading) {
+    return <div className="flex flex-col items-center justify-center h-[70vh] text-center">
+  <div className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin mb-4"></div>
+  <h2 className="text-lg font-semibold text-indigo-600">Fetching your profile...</h2>
+  </div>
+  }
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-xl shadow-md mt-10">

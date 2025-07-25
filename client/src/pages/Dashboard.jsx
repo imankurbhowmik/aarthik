@@ -38,7 +38,7 @@ const Dashboard = () => {
   if (!summary || !trend || !monthlyCat || !monthlySource) { 
     return <div className="flex flex-col items-center justify-center h-[70vh] text-center">
   <div className="w-12 h-12 border-4 border-blue-400 border-t-transparent rounded-full animate-spin mb-4"></div>
-  <h2 className="text-lg font-semibold text-gray-600">Fetching insights...</h2>
+  <h2 className="text-lg font-semibold text-indigo-600">Fetching insights...</h2>
   <p className="text-sm text-gray-400">Hang tight, we’re analyzing your data.</p>
 </div>
 
