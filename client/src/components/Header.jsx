@@ -10,7 +10,7 @@ import {
   FiLayers,
   FiDatabase,
   FiUser,
-  FiHome
+  FiHome,
 } from "react-icons/fi";
 
 const Header = () => {
@@ -20,8 +20,29 @@ const Header = () => {
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/home" className="text-xl font-bold text-indigo-600 tracking-wide">
-          Aarthik
+        <Link to="/home" className="flex items-center gap-2">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 120 120"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="min-w-[40px]"
+          >
+            <rect width="120" height="120" rx="24" fill="#1A1A2E" />
+            <path
+              d="M30 80L45 50L60 80L75 50L90 80"
+              stroke="#4F46E5"
+              strokeWidth="4"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="45" cy="50" r="5" fill="#4F46E5" />
+            <circle cx="75" cy="50" r="5" fill="#4F46E5" />
+          </svg>
+          <span className="text-xl font-bold text-indigo-600 tracking-wide">
+            Aarthik
+          </span>
         </Link>
 
         {/* Nav Items */}
@@ -50,7 +71,7 @@ const Header = () => {
             </Link>
           </div>
         ) : (
-          <nav className="flex gap-4">
+          <nav className="flex gap-4 flex-wrap justify-end items-center">
             <Link to="/" title="Home" className="text-gray-700 hover:text-indigo-600 transition">
               <FiHome size={22} />
             </Link>
@@ -80,3 +101,5 @@ const Header = () => {
 };
 
 export default Header;
+
+
