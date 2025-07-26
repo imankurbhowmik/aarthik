@@ -42,7 +42,7 @@ Live at: [🌐 https://aarthik.online](https://aarthik.online)
 
 ### Clone the repo
 
-- git clone **[github](https://github.com/imankurbhowmik/aarthik)**
+- git clone **[github](https://github.com/imankurbhowmik/aarthik.git)**
 
 ### Setup Backend
 
