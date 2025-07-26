@@ -19,15 +19,15 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/home" className="flex items-center gap-2">
+        {/* Logo + Name */}
+        <Link to="/home" className="flex items-center gap-2 shrink-0">
           <svg
-            width="40"
-            height="40"
+            width="32"
+            height="32"
             viewBox="0 0 120 120"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="min-w-[40px]"
+            className="min-w-[32px] sm:min-w-[40px] sm:w-[40px] sm:h-[40px]"
           >
             <rect width="120" height="120" rx="24" fill="#1A1A2E" />
             <path
@@ -40,14 +40,14 @@ const Header = () => {
             <circle cx="45" cy="50" r="5" fill="#4F46E5" />
             <circle cx="75" cy="50" r="5" fill="#4F46E5" />
           </svg>
-          <span className="text-xl font-bold text-indigo-600 tracking-wide">
+          <span className="text-lg sm:text-xl font-bold text-indigo-600 tracking-wide">
             Aarthik
           </span>
         </Link>
 
         {/* Nav Items */}
         {!authStatus ? (
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 flex-shrink-0">
             <Link to="/" className="text-gray-700 hover:text-indigo-600 transition" title="Home">
               <FiHome size={22} />
             </Link>
@@ -59,10 +59,7 @@ const Header = () => {
             </Link>
           </div>
         ) : (
-          <nav
-            className="flex gap-x-4 items-center overflow-x-auto whitespace-nowrap flex-nowrap scrollbar-hide"
-            style={{ WebkitOverflowScrolling: "touch" }}
-          >
+          <nav className="flex items-center gap-4 flex-shrink-0">
             <Link to="/" title="Home" className="text-gray-700 hover:text-indigo-600 transition">
               <FiHome size={22} />
             </Link>
