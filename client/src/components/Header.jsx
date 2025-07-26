@@ -48,30 +48,21 @@ const Header = () => {
         {/* Nav Items */}
         {!authStatus ? (
           <div className="flex items-center gap-4">
-            <Link
-              to="/"
-              className="text-gray-700 hover:text-indigo-600 transition"
-              title="Home"
-            >
+            <Link to="/" className="text-gray-700 hover:text-indigo-600 transition" title="Home">
               <FiHome size={22} />
             </Link>
-            <Link
-              to="/login"
-              className="text-gray-700 hover:text-indigo-600 transition"
-              title="Login"
-            >
+            <Link to="/login" className="text-gray-700 hover:text-indigo-600 transition" title="Login">
               <FiLogIn size={22} />
             </Link>
-            <Link
-              to="/signup"
-              className="text-gray-700 hover:text-indigo-600 transition"
-              title="Signup"
-            >
+            <Link to="/signup" className="text-gray-700 hover:text-indigo-600 transition" title="Signup">
               <FiUserPlus size={22} />
             </Link>
           </div>
         ) : (
-          <nav className="flex gap-4 flex-wrap justify-end items-center">
+          <nav
+            className="flex gap-x-4 items-center overflow-x-auto whitespace-nowrap flex-nowrap scrollbar-hide"
+            style={{ WebkitOverflowScrolling: "touch" }}
+          >
             <Link to="/" title="Home" className="text-gray-700 hover:text-indigo-600 transition">
               <FiHome size={22} />
             </Link>
@@ -101,5 +92,6 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
