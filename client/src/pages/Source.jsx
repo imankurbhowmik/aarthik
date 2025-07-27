@@ -74,7 +74,7 @@ const Source = () => {
         <h2 className="text-2xl font-bold text-indigo-600 mb-4">Manage Sources of Incomes🔗</h2>
 
         {/* Add New Source */}
-        <form onSubmit={handleAdd} className="flex gap-2 mb-6">
+        <form onSubmit={handleAdd} className="flex flex-col sm:flex-row gap-2 mb-6">
           <input
             type="text"
             value={newSource}
@@ -82,7 +82,7 @@ const Source = () => {
             placeholder="Add new source"
             className="flex-1 px-4 py-2 border rounded-md"
           />
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700">
+          <button className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 flex items-center justify-center min-w-[42px]">
             <FiPlus />
           </button>
         </form>
