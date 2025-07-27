@@ -71,7 +71,7 @@ const Category = () => {
   return (
     <div className="min-h-screen px-4 py-8 bg-gray-50">
       <div className="max-w-3xl mx-auto bg-white p-6 rounded-xl shadow">
-        <h2 className="text-2xl font-bold text-indigo-600 mb-4">Manage Categories 📂</h2>
+        <h2 className="text-2xl font-bold text-indigo-600 mb-4">Manage Categories of Expenses📂</h2>
 
         {/* Add New Category */}
         <form onSubmit={handleAdd} className="flex gap-2 mb-6">
