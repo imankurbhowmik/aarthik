@@ -29,7 +29,7 @@ const Footer = () => {
             href="https://twitter.com/iamankurbhowmik"
             target="_blank"
             className="hover:text-indigo-600 transition"
-            title="Email us"
+            title="Twitter"
           >
             <FiTwitter />
           </a>
