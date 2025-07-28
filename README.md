@@ -42,19 +42,25 @@ Live at: [🌐 https://aarthik.online](https://aarthik.online)
 
 ### Clone the repo
 
-- git clone **[github](https://github.com/imankurbhowmik/aarthik.git)**
+```bash
+git clone https://github.com/imankurbhowmik/aarthik.git
+```
 
 ### Setup Backend
 
-- cd server
-- npm install
-- npm run dev
+```bash
+cd server
+npm install
+npm run dev
+```
 
 ### Setup Frontend
 
-- cd client
-- npm install
-- npm run dev
+```bash
+cd client
+npm install
+npm run dev
+```
 
 ---
 
@@ -87,6 +93,3 @@ Live at: [🌐 https://aarthik.online](https://aarthik.online)
 
 **Ankur Bhowmik**
 **[LinkedIn](https://www.linkedin.com/in/ankur-bhowmik-83921b18b)**
-
-
-
